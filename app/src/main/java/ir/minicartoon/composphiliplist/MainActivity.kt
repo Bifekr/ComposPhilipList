@@ -22,27 +22,34 @@ import ir.minicartoon.composphiliplist.ui.theme.ComposPhilipListTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContent {
-
-            Column(Modifier
-                .fillMaxSize(0.5f)
-                .background(Color.Green),
-//                verticalArrangement = Arrangement.Center,
-//                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-
-                Text("Hello",Modifier
-                    .fillMaxSize(0.5f)
-
-
-                )
-                Text(text = "Milad")
-            }
+            MessageCard(
+                message = Message("milad", "newMessage")
+            )
 
         }
+
     }
+
 }
 
 
+data class Message(val author: String, val message: String)
+
+@Composable
+fun NewMessageCard(msg: String) {
+    Text(text = "hello $msg")
+}
+
+@Composable
+fun MessageCard(message: Message) {
+    Text(text = message.author)
+    Text(text = message.message)
+}
+
+@Preview
+@Composable
+fun PreviewMessageCard() {
+    MessageCard(message = Message("milad", "newMessage"))
+}
 
