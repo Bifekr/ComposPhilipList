@@ -3,4 +3,5 @@
     <string name="title_activity_part3">Part_3</string>
     <string name="title_activity_image_card_composabe">ImageCardComposabe</string>
     <string name="title_activity_modifer_offset_padding">ModiferOffsetPadding</string>
+    <string name="title_activity_textstyle">Textstyle</string>
 </resources>
