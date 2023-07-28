@@ -30,56 +30,10 @@ import ir.minicartoon.composphiliplist.playlist.ui.theme.ComposPhilipListTheme
 class TextStyle : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        var fontFamily = FontFamily(
-            Font(R.font.signikanegative_light, FontWeight.Light),
-            Font(R.font.signikanegative_regular, FontWeight.Thin),
-            Font(R.font.signikanegative_medium, FontWeight.Medium),
-            Font(R.font.signikanegative_semibold, FontWeight.SemiBold),
-            Font(R.font.signikanegative_bold, FontWeight.Bold),
-
-
-            )
         setContent {
-            Box(
-                modifier = Modifier
-                    .background(color = Color(0xFF101010))
-                    .fillMaxSize()
-
-            ) {
-                Text(
-                    text = buildAnnotatedString {
-                        withStyle(
-                            style = SpanStyle(
-                                color = Color.Magenta,
-                                fontSize = 60.sp
-                            )
-                        ) {
-                            append("J")
-                        }
-                        append("etpack ")
-                        withStyle(
-                            style = SpanStyle(
-                                color = Color.Magenta,
-                                fontSize = 60.sp
-                            )
-                        ) {
-                            append("C")
-                        }
-                        append("ompose ")
-                    },
-//                    text = "Jetpack Compose",
-                    color = Color.Green,
-                    fontSize = 35.sp,
-                    fontStyle = FontStyle.Italic,
-                    fontFamily = fontFamily,
-                    fontWeight = FontWeight.SemiBold,
-                    textAlign = TextAlign.Center,
-                    textDecoration = TextDecoration.Underline
-
-                )
 
 
-            }
+
         }
     }
 }
