@@ -52,7 +52,7 @@ fun MessageCard(message: Message) {
     // Add padding around our message
     Row(modifier = Modifier.padding(all = 8.dp)) {
         Image(
-            painter = painterResource(id = androidx.core.R.drawable.ic_call_answer),
+            painter = painterResource(id = R.drawable.samplepik),
             contentDescription = "content Profile",
             Modifier
                 // Set image size to 40 dp
