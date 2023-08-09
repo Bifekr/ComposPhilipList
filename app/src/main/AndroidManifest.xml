@@ -13,6 +13,31 @@
         android:theme="@style/Theme.ComposPhilipList"
         tools:targetApi="31">
         <activity
+            android:name=".playlist.Part5_TextStyle"
+            android:exported="false"
+            android:label="@string/title_activity_part5_text_style"
+            android:theme="@style/Theme.ComposPhilipList" />
+        <activity
+            android:name=".playlist.Part4_ImageCard"
+            android:exported="false"
+            android:label="@string/title_activity_part4_image_card"
+            android:theme="@style/Theme.ComposPhilipList" />
+        <activity
+            android:name=".playlist.Part3_Modifier"
+            android:exported="false"
+            android:label="@string/title_activity_part3_modifier"
+            android:theme="@style/Theme.ComposPhilipList" />
+        <activity
+            android:name=".playlist.Part2_Row_Column"
+            android:exported="false"
+            android:label="@string/title_activity_part2_row_column"
+            android:theme="@style/Theme.ComposPhilipList" />
+        <activity
+            android:name=".playlist.SnackBarTextFiled"
+            android:exported="false"
+            android:label="@string/title_activity_snack_bar_text_filed"
+            android:theme="@style/Theme.ComposPhilipList" />
+        <activity
             android:name=".playlist.TextStyle"
             android:exported="false"
             android:label="@string/title_activity_textstyle"

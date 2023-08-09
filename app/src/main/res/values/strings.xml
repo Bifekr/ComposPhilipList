@@ -4,4 +4,9 @@
     <string name="title_activity_image_card_composabe">ImageCardComposabe</string>
     <string name="title_activity_modifer_offset_padding">ModiferOffsetPadding</string>
     <string name="title_activity_textstyle">Textstyle</string>
+    <string name="title_activity_snack_bar_text_filed">SnackBarTextFiled</string>
+    <string name="title_activity_part2_row_column">Part2_Row_Column</string>
+    <string name="title_activity_part3_modifier">Part3_Modifier</string>
+    <string name="title_activity_part4_image_card">Part4_ImageCard</string>
+    <string name="title_activity_part5_text_style">Part5_TextStyle</string>
 </resources>
