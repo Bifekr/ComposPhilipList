@@ -10,4 +10,6 @@
     <string name="title_activity_part4_image_card">Part4_ImageCard</string>
     <string name="title_activity_part5_text_style">Part5_TextStyle</string>
     <string name="title_activity_part6_state">Part6_State</string>
+    <string name="title_activity_part7_text_filed">Part7_TextFiled</string>
+    <string name="title_activity_part8_recyclerview">Part8_Recyclerview</string>
 </resources>
