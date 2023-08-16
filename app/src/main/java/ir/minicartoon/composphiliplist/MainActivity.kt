@@ -3,104 +3,81 @@ package ir.minicartoon.composphiliplist
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.animation.animateColor
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 
 class MainActivity : ComponentActivity() {
-
-    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-//            SimpleList()
-//            ScrollSimpleList()
-//            LazyColumnSample()
-            LazyColumn2()
-        }
+            var sizeState by remember { mutableStateOf(200.dp) }
+            val size by animateDpAsState(
+                targetValue = sizeState,
+                tween(
+                    durationMillis = 1000
+                )
+                /*     keyframes {
+                         durationMillis = 5000
+                         sizeState at 0 with LinearEasing
+                         sizeState * 1.5f at 1000 with FastOutLinearInEasing
+                         sizeState * 2f at 5000
 
+                     }*/, label = ""
+                /*     tween(
+                         durationMillis = 3000,
+                         delayMillis = 200,
+                         easing = LinearOutSlowInEasing
+                     )*/
+                /*     spring(
+                         Spring.DampingRatioHighBouncy
+                     )*/
+            )
+            val infiniteTransition = rememberInfiniteTransition()
+            val colorss by infiniteTransition.animateColor(
+                initialValue = Color.Yellow,
+                targetValue = Color.Blue,
+                animationSpec = infiniteRepeatable(
+                    tween(durationMillis = 2000), repeatMode = RepeatMode.Reverse
+                ), label = ""
+            )
 
-    }
-
-}
-
-
-@Composable
-fun SimpleList() {
-
-    Column {
-        for (i in 1..50)
-            Text(
-                text = "item in $i",
-                textAlign = TextAlign.Center,
-                fontSize = 24.sp,
-                fontWeight = FontWeight.Bold,
+            Box(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(12.dp)
-            )
-    }
+                    .background(colorss)
+                    .size(size)
+                    .clickable {
+                        sizeState += 50.dp
+                    }, contentAlignment = Alignment.Center
+            ) {
+                Text(text = "click me", fontSize = 25.sp)
+            }
 
-}
-
-@Composable
-fun ScrollSimpleList() {
-    val scrollState = rememberScrollState()
-    Column(
-        modifier = Modifier.verticalScroll(scrollState)
-    ) {
-        for (i in 0..50)
-            Text(
-                text = "value of $i"
-            )
-
-    }
-}
-
-@Composable
-fun LazyColumnSample() {
-
-    LazyColumn {
-        //All items loaded when app Startup
-        items(5000) {
-            Text(
-                text = "item in $it",
-                textAlign = TextAlign.Center,
-                fontSize = 24.sp,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(12.dp)
-            )
-        }
-    }
-}
-
-@Composable
-fun LazyColumn2() {
-
-    LazyColumn {
-        itemsIndexed(
-            listOf("this", "is", "list", "in", "Compose")
-
-        ) { int, String ->
-            Text(text = String)
 
         }
+
+
     }
+
 }
+
 
 

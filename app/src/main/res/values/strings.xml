@@ -12,4 +12,8 @@
     <string name="title_activity_part6_state">Part6_State</string>
     <string name="title_activity_part7_text_filed">Part7_TextFiled</string>
     <string name="title_activity_part8_recyclerview">Part8_Recyclerview</string>
+    <string name="title_activity_part9_constraint_layout">Part9_ConstraintLayout</string>
+    <string name="title_activity_part10_effect_handler">Part10_EffectHandler</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="title_activity_video11_simple_animat">Video11_SimpleAnimat</string>
 </resources>

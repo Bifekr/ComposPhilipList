@@ -12,11 +12,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import ir.minicartoon.composphiliplist.playlist.ui.theme.ComposPhilipListTheme
 
-class SnackBarTextFiled : ComponentActivity() {
+class Part10_EffectHandler : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-
         }
     }
 }
+
+
+
