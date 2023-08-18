@@ -1,20 +1,12 @@
-package ir.minicartoon.composphiliplist
+package ir.minicartoon.composphiliplist.playlist
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.animation.animateColor
-import androidx.compose.animation.core.RepeatMode
-import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.animation.core.infiniteRepeatable
-import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -33,20 +25,14 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-
-class MainActivity : ComponentActivity() {
+class Video12_ProgressBar : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                ProgressbarSample(percentage = 0.75f, number = 200)
-            }
+            ProgressbarSample(percentage = 75f, number = 200)
 
         }
-
-
     }
-
 }
 
 
@@ -58,7 +44,7 @@ fun ProgressbarSample(
     text: TextUnit = 24.sp,
     color: Color = Color.Blue,
     animDelay: Int = 0,
-    animDuration: Int = 2000,
+    animDuration: Int = 1000,
     strokeWidth: Dp = 8.dp
 ) {
     var animatePlayed by remember { mutableStateOf(false) }
@@ -80,7 +66,7 @@ fun ProgressbarSample(
                 startAngle = -90f,
                 sweepAngle = 360 * curPercentage.value,
                 useCenter = false,
-                style = Stroke(strokeWidth.value, cap = StrokeCap.Round)
+                style = Stroke(strokeWidth.toPx(), cap = StrokeCap.Round)
             )
         }
         Text(

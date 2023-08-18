@@ -16,4 +16,5 @@
     <string name="title_activity_part10_effect_handler">Part10_EffectHandler</string>
     <string name="title_activity_main2">MainActivity2</string>
     <string name="title_activity_video11_simple_animat">Video11_SimpleAnimat</string>
+    <string name="title_activity_video12_progress_bar">Video12_ProgressBar</string>
 </resources>
