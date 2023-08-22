@@ -17,4 +17,6 @@
     <string name="title_activity_main2">MainActivity2</string>
     <string name="title_activity_video11_simple_animat">Video11_SimpleAnimat</string>
     <string name="title_activity_video12_progress_bar">Video12_ProgressBar</string>
+    <string name="title_activity_video13_draggable_music_knob">Video13_DraggableMusicKnob</string>
+    <string name="title_activity_part14_meditation_ui">Part14_MeditationUi</string>
 </resources>

@@ -13,6 +13,16 @@
         android:theme="@style/Theme.ComposPhilipList"
         tools:targetApi="31">
         <activity
+            android:name=".playlist.Video14_MeditationUi"
+            android:exported="false"
+            android:label="@string/title_activity_part14_meditation_ui"
+            android:theme="@style/Theme.ComposPhilipList" />
+        <activity
+            android:name=".playlist.Video13_DraggableMusicKnob"
+            android:exported="false"
+            android:label="@string/title_activity_video13_draggable_music_knob"
+            android:theme="@style/Theme.ComposPhilipList" />
+        <activity
             android:name=".playlist.Video12_ProgressBar"
             android:exported="false"
             android:label="@string/title_activity_video12_progress_bar"

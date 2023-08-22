@@ -44,7 +44,7 @@ fun ProgressbarSample(
     text: TextUnit = 24.sp,
     color: Color = Color.Blue,
     animDelay: Int = 0,
-    animDuration: Int = 1000,
+    animDuration: Int = 2000,
     strokeWidth: Dp = 8.dp
 ) {
     var animatePlayed by remember { mutableStateOf(false) }
@@ -66,7 +66,7 @@ fun ProgressbarSample(
                 startAngle = -90f,
                 sweepAngle = 360 * curPercentage.value,
                 useCenter = false,
-                style = Stroke(strokeWidth.toPx(), cap = StrokeCap.Round)
+                style = Stroke(strokeWidth.value, cap = StrokeCap.Round)
             )
         }
         Text(

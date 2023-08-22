@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import kotlin.random.Random
@@ -76,4 +77,55 @@ fun BoxesColor(modifier: Modifier = Modifier, updateColor: (Color) -> Unit) {
             )
         }
     )
+}
+
+//review 4 Time : 18min
+@Composable
+fun SimpleState() {
+
+    val color = remember { mutableStateOf(Color.Yellow) }
+    Box(modifier = Modifier
+        .fillMaxSize()
+        .background(color.value)
+        .clickable {
+            color.value = Color(
+                Random.nextFloat(),
+                Random.nextFloat(),
+                Random.nextFloat(),
+                1f
+            )
+        }
+    )
+
+}
+
+@Composable
+fun BoxesState() {
+    val colorState = remember {
+        mutableStateOf(Color.Yellow)
+    }
+
+    Column(
+        modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Box(modifier = Modifier
+            .weight(1f)
+            .fillMaxSize()
+            .background(colorState.value)
+            .clickable {
+                colorState.value = Color(
+                    Random.nextFloat(),
+                    Random.nextFloat(),
+                    Random.nextFloat(),
+                    1f
+                )
+            }
+        )
+
+        Box(modifier = Modifier
+            .weight(1f)
+            .fillMaxSize()
+            .background(colorState.value))
+    }
+
 }
