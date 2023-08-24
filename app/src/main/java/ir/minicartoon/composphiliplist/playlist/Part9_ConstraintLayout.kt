@@ -6,6 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -19,6 +21,7 @@ import androidx.constraintlayout.compose.ChainStyle
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
 import androidx.constraintlayout.compose.Dimension
+import ir.minicartoon.composphiliplist.playlist.ui.theme.BlueViolet1
 import ir.minicartoon.composphiliplist.playlist.ui.theme.ComposPhilipListTheme
 
 class Part9_ConstraintLayout : ComponentActivity() {
@@ -30,6 +33,36 @@ class Part9_ConstraintLayout : ComponentActivity() {
     }
 }
 
+//google documentation Way
+@Composable
+fun ConstraintLayoutContent() {
+    ConstraintLayout {
+        // Create references for the composables to constrain
+        val (button, text) = createRefs()
+
+        Button(
+            onClick = { /* Do something */ },
+            // Assign reference "button" to the Button composable
+            // and constrain it to the top of the ConstraintLayout
+            modifier = Modifier.constrainAs(button) {
+                top.linkTo(parent.top, margin = 16.dp)
+            }
+        ) {
+            Text("Button")
+        }
+
+        // Assign reference "text" to the Text composable
+        // and constrain it to the bottom of the Button composable
+        Text(
+            "Text",
+            Modifier.constrainAs(text) {
+                top.linkTo(button.bottom, margin = 16.dp)
+            }
+        )
+    }
+}
+
+//philip way
 @Composable
 fun ConstraintSample() {
 
@@ -69,4 +102,53 @@ fun ConstraintSample() {
                 .layoutId("bBox")
         )
     }
+}
+
+//review 4
+@Composable
+fun ConstraintSample2() {
+    val contraints = ConstraintSet {
+        val greenBox = createRefFor("greenBox")
+        val yellowBox = createRefFor("yellowBox")
+//gouidLine
+        val guideLine = createGuidelineFromTop(.5f)
+
+        constrain(greenBox) {
+
+            start.linkTo(parent.start)
+            top.linkTo(guideLine)
+//            top.linkTo(parent.top)
+            width = Dimension.value(100.dp)
+            height = Dimension.value(100.dp)
+        }
+
+        constrain(yellowBox)
+        {
+            start.linkTo(greenBox.end)
+            top.linkTo(parent.top)
+            end.linkTo(parent.end)
+//            width= Dimension.fillToConstraints
+            width = Dimension.value(100.dp)
+            height = Dimension.value(100.dp)
+        }
+
+
+//        Chain out of constraint Block
+        createHorizontalChain(greenBox, yellowBox, chainStyle = ChainStyle.Packed)
+
+    }
+
+    ConstraintLayout(contraints, modifier = Modifier.fillMaxWidth()) {
+
+        Box(
+            modifier = Modifier
+                .background(BlueViolet1)
+                .layoutId("greenBox")
+        )
+        Box(modifier = Modifier
+            .background(Color.Yellow)
+            .layoutId("yellowBox"))
+
+    }
+
 }

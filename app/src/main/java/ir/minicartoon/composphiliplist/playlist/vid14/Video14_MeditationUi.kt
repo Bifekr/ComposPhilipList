@@ -1,4 +1,4 @@
-package ir.minicartoon.composphiliplist.playlist
+package ir.minicartoon.composphiliplist.playlist.vid14
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

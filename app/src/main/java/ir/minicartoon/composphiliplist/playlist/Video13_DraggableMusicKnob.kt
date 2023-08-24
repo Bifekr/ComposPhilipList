@@ -38,11 +38,9 @@ class Video13_DraggableMusicKnob : ComponentActivity() {
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun KnobMusic(
-
     modifier: Modifier = Modifier,
     limitingAngle: Float = 25f,
     onValueChange: (Float) -> Unit
-
 ) {
 
     var rotation by remember {
@@ -110,3 +108,5 @@ fun KnobMusic(
 
 
 }
+
+//
