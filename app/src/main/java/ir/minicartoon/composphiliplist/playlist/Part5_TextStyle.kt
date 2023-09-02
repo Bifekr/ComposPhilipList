@@ -11,11 +11,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
 import ir.minicartoon.composphiliplist.R
@@ -52,7 +56,11 @@ fun SimpleTextStyle() {
             text = "jetpack Compose",
             color = Color.Blue,
             fontSize = 18.sp,
-            fontFamily = fontFamily
+            fontFamily = fontFamily,
+            fontWeight = FontWeight.Bold,
+            textAlign = TextAlign.Center,
+            fontStyle = FontStyle.Italic,
+            textDecoration = TextDecoration.Underline
 
         )
     }
@@ -100,6 +108,7 @@ fun AnnotationTextStyle() {
             color = Color.Green,
             fontFamily = fontFamily,
             fontSize = 32.sp
+
         )
     }
 }
@@ -131,4 +140,43 @@ fun SimpleTextStyle4() {
             }
         })
     }
+}
+
+//5omin Review
+@Composable
+fun SimpleText5() {
+    val fontFamily = FontFamily(
+        Font(R.font.signikanegative_light, FontWeight.Light),
+        Font(R.font.signikanegative_medium, FontWeight.Medium),
+        Font(R.font.signikanegative_bold, FontWeight.Bold)
+    )
+    Box(modifier = Modifier.fillMaxSize()) {
+        Text(buildAnnotatedString {
+            withStyle(
+                style = SpanStyle(
+                    color = Color.Green,
+                    fontSize = 24.sp
+                )
+            ) {
+                append("JJ")
+            }
+            append("opoxo")
+
+            withStyle(
+                style = SpanStyle(
+                    Color.Blue,
+                    fontSize = 24.sp
+
+                )
+            ) {
+                append(
+                    "we"
+                )
+
+
+            }
+            append("gogoglo")
+        })
+    }
+
 }

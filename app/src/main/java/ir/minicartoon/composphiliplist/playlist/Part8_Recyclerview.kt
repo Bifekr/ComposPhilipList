@@ -96,3 +96,17 @@ fun LazyColumn2() {
         }
     }
 }
+
+//review4
+@Composable
+fun SimpleList4() {
+    val scrollState = rememberScrollState()
+    val list = listOf("one", "twoe", "three", "for")
+    val j = 0
+    Column(Modifier.verticalScroll(scrollState)) {
+        for (i in 0..4) {
+            Text(text = "this item number is $i")
+        }
+
+    }
+}

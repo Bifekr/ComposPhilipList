@@ -1,5 +1,6 @@
 package ir.minicartoon.composphiliplist.playlist
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -122,10 +123,62 @@ fun BoxesState() {
             }
         )
 
-        Box(modifier = Modifier
-            .weight(1f)
-            .fillMaxSize()
-            .background(colorState.value))
+        Box(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxSize()
+                .background(colorState.value)
+        )
     }
 
 }
+
+
+//review 6
+//for setContent :
+@Composable
+fun SetContetnn() {
+    Column(modifier = Modifier.fillMaxSize()) {
+        val color = remember {
+            mutableStateOf(Color.Yellow)
+        }
+        ColorBoxState(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxSize()
+                .background(color.value)
+
+        ) {
+            color.value = it
+        }
+
+        Box(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxSize()
+                .background(color.value)
+        )
+    }
+}
+
+@Composable
+fun ColorBoxState(
+    modifier: Modifier = Modifier,
+    color: (Color) -> Unit,
+) {
+
+    Box(modifier = modifier
+
+        .clickable {
+            color(
+                Color(
+                    Random.nextFloat(),
+                    Random.nextFloat(),
+                    Random.nextFloat(),
+                    1f
+                )
+            )
+        }
+    )
+}
+

@@ -4,10 +4,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.animateColor
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.keyframes
 import androidx.compose.animation.core.rememberInfiniteTransition
@@ -141,4 +143,39 @@ fun SimpleAnimation3() {
     Text(text = "click me to decrement", modifier = Modifier.clickable {
         sizeState -= 30.dp
     })
+}
+
+//review 4 , time: 25
+@Composable
+fun SimpleAnimation4() {
+    var size = remember {
+        mutableStateOf(150.dp)
+    }
+
+
+    var animSize = animateDpAsState(
+        targetValue = size.value,
+        tween(durationMillis = 1000, delayMillis = 100),
+        label = "Incrse Box"
+    )
+
+    var infinitTranstion = rememberInfiniteTransition(label = "")
+    var colors = infinitTranstion.animateColor(
+        initialValue = Color.Yellow,
+        targetValue = Color.Green,
+        animationSpec = infiniteRepeatable(
+            tween(
+                durationMillis = 1500,
+                delayMillis = 1000,
+                easing = LinearOutSlowInEasing
+            ), repeatMode = RepeatMode.Reverse
+        ),
+        label = ""
+    )
+    Box(modifier = Modifier
+        .size(animSize.value)
+        .background(colors.value)
+        .clickable {
+            size.value += 25.dp
+        })
 }
